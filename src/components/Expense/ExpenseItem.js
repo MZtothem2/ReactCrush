@@ -55,15 +55,75 @@ function ExpenseItem(props) {
     // );
 
     // case 4. 날짜를 나타내는 부분을 또 하위컴포넌트 화
+    // return (
+    //     <div className="expense-item">
+    //         <ExpenseDate date={props.date} />
+    //         <div className='expense-item__description'></div>
+    //         <h2>{props.title}</h2>
+    //         <div className='expense-item__price'>${props.amount}</div>
+    //     </div>
+    // );
+
+
+
+
+    // [m] s4 컴포넌트 이벤트 리스닝
+
+    //case 4-0. XXXX 아래의 코드는 작동X => 이미 렌더링이 끝난 상태이기 때문
+    // let title  = props.title;
+    // const clickHandler = ()=>{
+    //     title = 'Updated!'
+    //     console.log(title)
+    // }
+    // return (
+    //     <div className="expense-item">
+    //         <ExpenseDate date={props.date} />
+    //         <div className='expense-item__description'></div>
+    //         <h2>{title}</h2>
+    //         <div className='expense-item__price'>${props.amount}</div>
+    //         <button onClick={clickHandler}>Change Title</button>
+    //     </div>
+    // );
+
+
+    // case 4-1. React의 state 사용
+    //  // 주의!!! useState는 컴포넌트의 메소드 안에서 호출되어야, 내장함수에서 호출 X
+    //  // 각 컴포넌트 별 독립적으로 데이터를 관리 -> 동일한 종류의 다른 컴포넌트에 영향 X
+    // const [title, setTitle] = useState(props.title); // const임! 중요. useState는 title을 재설정하지 않는다. 초깃값을 확인할뿐
+    // // useState는 현재 상태값, 상태값을 업데이트 하는 함수를 배열로 반환한다.
+    // // let title  = props.title; // Not use
+    // const clickHandler = ()=>{
+    //     // title = 'Updated!'
+    //     setTitle('Updated!')
+    //     console.log(title)
+    // }
+    // return (
+    //     <div className="expense-item">
+    //         <ExpenseDate date={props.date} />
+    //         <div className='expense-item__description'></div>
+    //         <h2>{title}</h2>
+    //         <div className='expense-item__price'>${props.amount}</div>
+    //         <button onClick={clickHandler}>Change Title</button>
+    //     </div>
+    // );
+
+
+    // case 4-2. React의 state 사용
+    const [title, setTitle] = useState(props.title);
+    const clickHandler = () => {
+        // title = 'Updated!'
+        setTitle('Updated!')
+        console.log(title)
+    }
     return (
         <div className="expense-item">
             <ExpenseDate date={props.date} />
             <div className='expense-item__description'></div>
             <h2>{props.title}</h2>
             <div className='expense-item__price'>${props.amount}</div>
+            <button onClick={clickHandler}>Change Title</button>
         </div>
     );
-
 }
 
 export default ExpenseItem;

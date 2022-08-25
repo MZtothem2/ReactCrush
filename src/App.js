@@ -1,6 +1,11 @@
-import './App.css';
-import './components/Expense/ExpenseItem.css';
-import ExpenseItem from './components/Expense/ExpenseItem';
+// import './App.css';
+// import './components/Expense/ExpenseItem.css';
+// import ExpenseItem from './components/Expense/ExpenseItem';
+// import NewExpense from './components/NewExpense/NewExpense';
+
+import React from 'react';
+import NewExpense from './components/NewExpense/NewExpense';
+import Expenses from './components/Expense/Expenses';
 
 function App() {
   const expenses = [
@@ -24,14 +29,22 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+  // [m] s2. 사용자가 커스텀한 컴포넌트가 표시되는 최상위 컴포넌트
+  // return (
+  //   <div>
+  //     <NewExpense />
+  //     <ExpenseItem title={expenses[0].title} amount={expenses[0].amount} date={expenses[0].date} />
+  //     <ExpenseItem title={expenses[1].title} amount={expenses[1].amount} date={expenses[1].date} />
+  //     <ExpenseItem title={expenses[2].title} amount={expenses[2].amount} date={expenses[2].date} />
+  //  </div>
+  // );
+
+  // [m] s3
   return (
     <div>
-      {/* [m] s2. 사용자가 커스텀한 컴포넌트가 표시되는 최상위 컴포넌트 */}
-      <h2>Let's get started</h2>
-      <ExpenseItem title={expenses[0].title} amount={expenses[0].amount} date={expenses[0].date} />
-      <ExpenseItem title={expenses[1].title} amount={expenses[1].amount} date={expenses[1].date} />
-      <ExpenseItem title={expenses[2].title} amount={expenses[2].amount} date={expenses[2].date} />
-   </div>
+      <NewExpense />
+      <Expenses items={expenses} />
+    </div>
   );
 }
 
