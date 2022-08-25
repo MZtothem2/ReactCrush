@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 
 import ExpenseDate from './ExpenseDate';
 import './ExpenseItem.css';
@@ -62,6 +63,7 @@ function ExpenseItem(props) {
             <div className='expense-item__price'>${props.amount}</div>
         </div>
     );
+
 }
 
 export default ExpenseItem;
