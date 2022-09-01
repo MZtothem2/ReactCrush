@@ -29,6 +29,15 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+
+  // [m] s4 자식->부모 상향식 통신
+  const addExpenseHandler = expense => {
+    console.log('In App.js');
+    console.log(expense);
+  }
+
+
+
   // [m] s2. 사용자가 커스텀한 컴포넌트가 표시되는 최상위 컴포넌트
   // return (
   //   <div>
@@ -42,7 +51,7 @@ function App() {
   // [m] s3
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );

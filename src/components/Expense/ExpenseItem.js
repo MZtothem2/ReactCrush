@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import ExpenseDate from './ExpenseDate';
 import './ExpenseItem.css';
 function ExpenseItem(props) {
-    
+
     // [m] s3
     // case1. 컴포넌트 내의 변수를 표현하는 경우
     // const expenseDate = new Date(2021, 2, 28);
@@ -35,7 +35,7 @@ function ExpenseItem(props) {
     // );
 
 
-    
+
     // case 3. 하위컴포넌트 내에서 값을 처리
     // const month = props.date.toLocaleString('en-us', {month: 'long'});
     // const day = props.date.toLocaleString('en-us', {day: '2-digit'});
