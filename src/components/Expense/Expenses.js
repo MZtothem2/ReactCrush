@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import ExpenseItem from './ExpenseItem';
 import Card from '../UI/Card';
 import ExpensesFilter from './ExpensesFilter';
 import './Expenses.css';
+import ExpensesList from './ExpensesList';
 
 const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState('2020');
@@ -11,36 +11,25 @@ const Expenses = (props) => {
   const filterChangeHandler = selectedYear => {
     console.log(`Expenses.js got selected Year`, selectedYear);
     setFilteredYear(selectedYear);
-  }
+  };
+
+  // dropbox의 내용을 표시하기위해 렌더링 용 데이터를 따로 설정한다.
+  const filteredExpenses = props.items.filter(expense => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
+
 
 
   return (
-    <div>
-      <Card className="expenses">
-        <ExpensesFilter selected={filteredYear} onChangeHandler={filterChangeHandler} />
-
-        <ExpenseItem
-          title={props.items[0].title}
-          amount={props.items[0].amount}
-          date={props.items[0].date}
-        />
-        <ExpenseItem
-          title={props.items[1].title}
-          amount={props.items[1].amount}
-          date={props.items[1].date}
-        />
-        <ExpenseItem
-          title={props.items[2].title}
-          amount={props.items[2].amount}
-          date={props.items[2].date}
-        />
-        <ExpenseItem
-          title={props.items[3].title}
-          amount={props.items[3].amount}
-          date={props.items[3].date}
-        />
-      </Card>
-    </div>
+    <li>
+      <div>
+        <Card className="expenses">
+          <ExpensesFilter selected={filteredYear} onChangeHandler={filterChangeHandler} />
+          {/* [m] s5. 조건부 렌더링 */}
+          <ExpensesList items={filteredExpenses} />
+        </Card>
+      </div>
+    </li>
   );
 }
 

@@ -87,7 +87,10 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className='new-expense__actions'>
-        <button type='submit'>Add Expense</button>
+        <button type='submit'>Add Expense</button> 
+        {/* => submit 버튼에 대한 반응은 상단 <form> 태그에 걸려있음 */}
+        <button type='button' onClick={props.onCancel}>Cancel</button>
+        {/* => 일반 button에 대한 반응은 onClick으로 */}
       </div>
     </form>
   );
