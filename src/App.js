@@ -46,7 +46,7 @@ const App = ()=> {
   const clickFromButton = () =>{
     
     isOnForm = !isOnForm;
-    if(isOnForm) addFormContent = <NewExpense onAddExpense={addExpenseHandler} />;
+    if(isOnForm) addFormContent = <NewExpense onAddExpense={addExpenseHandler} />
   }
 
   let addFormContent = <button onClick={clickFromButton}>show</button>
@@ -66,7 +66,7 @@ const App = ()=> {
   // [m] s3
   return (
     <div>
-      <NewExpense onAddExpense={addExpenseHandler} />;
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );
