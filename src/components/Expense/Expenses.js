@@ -22,7 +22,7 @@ const Expenses = (props) => {
 
 
   return (
-    <li>
+    // <li> list형태임을 일관성있게 표현
       <div>
         <Card className="expenses">
           <ExpensesFilter selected={filteredYear} onChangeHandler={filterChangeHandler} />
@@ -31,7 +31,7 @@ const Expenses = (props) => {
           <ExpensesList items={filteredExpenses} />
         </Card>
       </div>
-    </li>
+    // </li>
   );
 }
 
